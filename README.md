@@ -1,8 +1,8 @@
-#Nsight LLM Analyzer
+# Nsight LLM Analyzer
 
 Nsight LLM Analyzer is a tool that reads output from NVIDIA Nsight Systems, analyzes it using OpenAI's GPT-4, and provides insights on performance bottlenecks and resource usage. This repository includes a modular Python package for performing the analysis and a main script for running the tool.
 
-##Directory Structure
+## Directory Structure
 
 
 Nsight_LLM_analyzer/
@@ -16,7 +16,7 @@ Nsight_LLM_analyzer/
         __init__.py
         test_llm_analyze.py
 
-##Files Description
+## Files Description
     nsight_analyzer/: This directory contains the core analysis module.
         __init__.py: Makes the directory a package.
         llm_analyze.py: Contains functions to read mock data and analyze it using OpenAI's GPT-4.
@@ -30,7 +30,7 @@ Nsight_LLM_analyzer/
         __init__.py: Makes the directory a package.
         test_llm_analyze.py: Unit tests for llm_analyze.py using unittest and unittest.mock.
 
-##Installation
+## Installation
 
 Clone the repository:
     ```git clone <repository_url>```
@@ -46,7 +46,7 @@ Set the OpenAI API key as an environment variable:
     On Windows:
     ```set OPENAI_API_KEY="your_openai_api_key"```
 
-##Running the Interactive Application
+## Running the Interactive Application
 Start the Flask server:
     ```python interactive_app.py```
 
@@ -57,10 +57,10 @@ Expected Output:
     You should see a form where you can select a file for analysis, modify the prompt, and optionally save the output to a folder.
     After submitting, the page will display the analysis results from GPT-4.
 
-##Run the main script:
+## Run the main script:
     ```python main.py```
 
-##Running Tests
+## Running Tests
 
 Ensure you have pytest installed:
     ```pip install pytest```
@@ -70,7 +70,7 @@ Run the tests:
 
 This will execute the unit tests and validate the functionality of the llm_analyze module.
 
-##Detailed Explanation
+## Detailed Explanation
 nsight_analyzer/llm_analyze.py
 
 This module contains two main functions:
