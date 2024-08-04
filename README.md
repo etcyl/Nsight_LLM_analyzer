@@ -57,16 +57,13 @@ Expected Output:
     You should see a form where you can select a file for analysis, modify the prompt, and optionally save the output to a folder.
     After submitting, the page will display the analysis results from GPT-4.
 
-## Run the main script:
-    ```python main.py```
+## Run the main script: ```python main.py```
 
 ## Running Tests
 
-Ensure you have pytest installed:
-    ```pip install pytest```
+Ensure you have pytest installed: ```pip install pytest```
 
-Run the tests:
-    ```pytest tests/test_llm_analyze.py```
+Run the tests: ```pytest tests/test_llm_analyze.py```
 
 This will execute the unit tests and validate the functionality of the llm_analyze module.
 
