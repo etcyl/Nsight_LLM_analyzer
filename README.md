@@ -33,12 +33,15 @@ Nsight_LLM_analyzer/
 ## Installation
 
 Clone the repository:
-    ```git clone <repository_url>```
-    ```cd Nsight_LLM_analyzer```
+```git clone <repository_url>```
+```cd Nsight_LLM_analyzer```
 
 Set up a virtual environment:
-    ```python -m venv myenv```
-    ```source myenv/bin/activate  # On Windows use `myenv\Scripts\activate` ```
+```python -m venv myenv```
+```source myenv/bin/activate```
+    
+### On Windows use 
+``` `myenv\Scripts\activate` ```
 
 Set the OpenAI API key as an environment variable:
     On Linux:
