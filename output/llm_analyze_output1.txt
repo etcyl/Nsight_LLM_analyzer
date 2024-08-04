@@ -1,0 +1,45 @@
+fleet@fleet-MAINGEAR MINGW64 ~/OneDrive/Desktop/Nsight_LLM_analyzer
+$ python llm_analyze.py 
+
+================================================================================
+File: nsight_data1.json
+================================================================================
+Analysis Output:
+Based on the Nsight Systems data given, the performance bottlenecks and resource usage can be analyzed as follows:
+
+1. **MatrixMultiplication** function: This function has a CPU Usage of 85% and Memory Usage of 650 MB, which is quite high. Furthermore, the GPU idle time is also at 20%. This function is likely causing a significant portion of the workload and could potentially be optimized.
+
+2. **DataPreparation** function: It has moderate CPU Usage at 45% and Memory Usage at 300 MB, with a lower GPU idle time of 10%. This function could be inspected further but its resource consumption isn't as high as the others.
+
+3. **RenderScene** function: This function consumes a considerable amount of memory at 720 MB, with CPU usage at 65%. Additionally, the GPU idle time is significantly high at 55%. This suggests that the function may not be fully utilizing the GPU effectively, hence, optimization can be targeted at improving GPU utilization.
+
+4. **FileIO** function: It has the lowest CPU Usage at 30% and Memory Usage at 200 MB, with the lowest GPU idle time at 5%, meaning that any optimizations here would likely only have smaller impacts.
+
+5. **DeepLearningTraining** function: This one has the highest CPU usage at 90% and consumes a remarkable amount of memory at 950 MB. Moreover, the function also leaves the GPU idle 60% of the time. This could very well be the major performance bottleneck, and would benefit most from optimizations.
+
+Overall, the areas taking up the most resources are the MatrixMultiplication and DeepLearningTraining functions, with special emphasis on the latter due to its high resource usage and GPU idle time.
+
+In terms of general advice for optimization, improving CPU and memory usage can be targeted by optimizing the algorithms, reducing redundancy, or possibly using better data structures. Overly high GPU idle times suggest that the GPU isn't being fully utilized, so parallelizing tasks, improving data transfer between the CPU and GPU, and other GPU-specific optimizations should be investigated.
+================================================================================
+
+================================================================================
+File: nsight_data2.json
+================================================================================
+Analysis Output:
+Analyzing the data from the Nsight Systems shows a few potential performance bottlenecks and areas of high resource usage:
+
+1. CPU Usage: The overall CPU usage for session 1 is 75.2% but during event 3, it jumps significantly to a high of 90.1%. This suggests that event 3 could be affected by a CPU bottleneck. The software code used in event 3 may need optimization for more efficient CPU usage.
+
+2. GPU Usage: The GPU usage is also very high, at an overall usage of 88.3%. It especially spikes during event 3, with a usage of 95.3%, indicating a potential GPU bottleneck. The code responsible for event 3 might be pushing the GPU to its limits.
+
+3. Memory Usage: The memory usage of 62.5% seems to be relatively normal. Nonetheless, you could consider checking the memory allocation and deallocation methods, and look for possibilities for efficient memory handling.
+
+4. Disk I/O: With a usage of only 15.2%, there doesn't appear to be any bottlenecks in this area.
+
+5. Network I/O: Network usage also seems to be low, at only 5.7%, so bottlenecks here are unlikely.
+
+For optimization, the focus should be on the CPU and GPU heavy tasks. Techniques for improving performance may include CPU and GPU profiling to identify and optimize hotspots in the code, implementing parallel computing strategies if appropriate, and reviewing algorithm efficiency.
+
+Moreover, higher usage doesn't necessarily mean there's a bottleneck—it could simply mean the resource is being thoroughly utilized. However, close inspection is needed if high usage correlates with poor application performance. You might also consider looking at how usage varies over time to better understand peak load situations.
+================================================================================
+(myenv) 

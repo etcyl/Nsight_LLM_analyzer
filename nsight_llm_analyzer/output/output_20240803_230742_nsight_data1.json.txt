@@ -1,0 +1,56 @@
+Prompt:
+Analyze the following Nsight Systems data for performance bottlenecks and resource usage:
+[
+  {
+    "Function Name": "MatrixMultiplication",
+    "CPU Usage": 85,
+    "Memory Usage": 650,
+    "GPU Idle Time": 20
+  },
+  {
+    "Function Name": "DataPreparation",
+    "CPU Usage": 45,
+    "Memory Usage": 300,
+    "GPU Idle Time": 10
+  },
+  {
+    "Function Name": "RenderScene",
+    "CPU Usage": 65,
+    "Memory Usage": 720,
+    "GPU Idle Time": 55
+  },
+  {
+    "Function Name": "FileIO",
+    "CPU Usage": 30,
+    "Memory Usage": 200,
+    "GPU Idle Time": 5
+  },
+  {
+    "Function Name": "DeepLearningTraining",
+    "CPU Usage": 90,
+    "Memory Usage": 950,
+    "GPU Idle Time": 60
+  }
+]
+
+Identify areas that should be inspected further for bottlenecks. Suggest areas taking up the most resources. Be detailed with your response.
+
+Analysis Output:
+Analyzing the data provided, we can observe the following:
+
+1. MatrixMultiplication:
+   This function is significantly utilizing the CPU with an 85% usage, and also has a fair amount of memory usage at 650. However, the GPU idle time is relatively low at 20, indicating the GPU may be under-utilized for this function. It might be beneficial to investigate whether elements of this function can be further parallelized and offloaded to the GPU.
+
+2. DataPreparation:
+   This function appears to be moderately efficient, with average CPU use and lower memory consumption. The GPU idle time is quite low at 10, implying that this function uses GPU resources quite well. However, if it's expected to be a larger consumer of resources, optimizing CPU and memory usage may assist in speeding up this process.
+
+3. RenderScene:
+   In contrast to MatrixMultiplication, the RenderScene function is seeing high memory usage (720) and GPU idle time (55), but the CPU usage is moderate at 65. The high GPU idle time indicates that this function could potentially make better use of GPU resources, possibly by offloading more of its processing to the GPU.
+
+4. FileIO:
+   The FileIO seems to be the least resource-intensive function in this workload, with relatively low CPU usage, memory usage, and GPU idle time. 
+
+5. DeepLearningTraining:
+   This function has the highest resource usage among the functions, with 90% CPU usage and 950 memory usage. The GPU idle time is also the highest at 60, suggesting that there are considerable portions of this function where the GPU is idle. This could potentially indicate an opportunity to optimize this function by better utilizing the GPU.
+
+In general, optimizing your workload can be achieved by distributing the tasks across CPU and GPU more effectively. Key areas in these specific functions to look at include MatrixMultiplication and DeepLearningTraining, which could possibly benefit from further parallelization and GPU optimization, and RenderScene, which may need better memory management or also further parallelization. Regular profiling and monitoring of the functions would aid in locating potential bottlenecks and performance degradation over time.

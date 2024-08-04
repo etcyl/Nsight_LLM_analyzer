@@ -1,0 +1,32 @@
+# Ignore binary files
+*.exe
+*.dll
+*.so
+*.dylib
+*.o
+*.obj
+*.lib
+*.a
+
+# Ignore build directories
+/build/
+
+# Ignore virtual environment directories
+/myenv/
+
+# Ignore system files
+Thumbs.db
+.DS_Store
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore specific directories
+/Lib/
+/Bin/
+__pycache__/

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nsight LLM Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Nsight LLM Analyzer</h1>
+        <form method="post" action="/" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Select a File (expected JSON formatted data from the Nsight Systems tool):</label>
+                <input type="file" id="file" name="file" required>
+            </div>
+            <div class="form-group">
+                <label for="prompt">Prompt:</label>
+                <textarea id="prompt" name="prompt" rows="10">{{ prompt }}</textarea>
+            </div>
+            <div class="form-group checkbox-group">
+                <label for="save_output">
+                    <input type="checkbox" id="save_output" name="save_output"> Save to a folder (saves to nsight_llm_analyzer/output/)
+                </label>
+            </div>
+            <button type="submit">Analyze</button>
+        </form>
+        {% if results %}
+        <h2>Analysis Results</h2>
+        <div class="scroll-container">
+            <pre>{{ results }}</pre>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

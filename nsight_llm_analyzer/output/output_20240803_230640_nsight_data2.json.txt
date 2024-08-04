@@ -1,0 +1,51 @@
+Prompt:
+Analyze the following Nsight Systems data for performance bottlenecks and resource usage:
+{
+  "sessions": [
+    {
+      "name": "Session 1",
+      "duration": 120.5,
+      "cpu_usage": 75.2,
+      "gpu_usage": 88.3,
+      "memory_usage": 62.5,
+      "disk_io": 15.2,
+      "network_io": 5.7,
+      "events": [
+        {
+          "name": "event_1",
+          "duration": 30.1,
+          "cpu_usage": 50.3,
+          "gpu_usage": 60.0
+        },
+        {
+          "name": "event_2",
+          "duration": 40.2,
+          "cpu_usage": 70.5,
+          "gpu_usage": 85.7
+        },
+        {
+          "name": "event_3",
+          "duration": 50.2,
+          "cpu_usage": 90.1,
+          "gpu_usage": 95.3
+        }
+      ]
+    }
+  ]
+}
+
+Identify areas that should be inspected further for bottlenecks. Suggest areas taking up the most resources and provide general optimization advice.
+
+Analysis Output:
+Analyzing the data provided, there are some potential performance bottlenecks and high resource usage areas that could be reviewed for optimization:
+
+1. **GPU Usage**: The GPU usage is consistently high, both at the session level (88.3%) and in all the events. Particularly in event_2 at 85.7% and event_3 at 95.3%. This indicates that the GPU is consistently being heavily utilized and could potentially be a performance bottleneck. If the present tasks can be optimized or offloaded from the GPU, there may be a potential performance improvement.
+
+2. **CPU Usage**: The CPU usage is also relatively high, with the session average being 75.2%. But it's particularly high during event_3, where it reaches 90.1%. This indicates that during certain tasks, the CPU could potentially be a performance bottleneck. Refactoring or optimizing the event_3 tasks could lead to performance improvement.
+
+3. **Memory Usage**: Memory usage throughout the session is 62.5%. While this is not as critical as the GPU and CPU usage, it is still considerable and could lead to bottlenecks if the usage consistently goes beyond this level. Look into whether there is any chance for memory optimization or if there are any memory leaks.
+
+4. **Disk IO & Network IO**: Both disk_io and network_io values are relatively low compared to other metrics (15.2% and 5.7%), so they should not pose immediate bottlenecks. However, the application's interaction with the disk and network should still be fine-tuned to ensure they do not turn into potential bottlenecks.
+
+General Optimization Advice:
+To optimize, start profiling the tasks in events where high resource usage has been noticed. Identifying less efficient code segments or algorithms and improving them might lead to a significant performance boost. In parallel tasks, ensure an effective load balancing. If possible, distribute tasks among multiple cores or use non-blocking algorithms to allow other tasks to execute without being delayed. Monitor the memory usage and correct potential leaks or unnecessary high memory usage. Lastly, make sure that data is efficiently being read and written to disk to prevent any IO bottlenecks.

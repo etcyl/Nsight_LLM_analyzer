@@ -1,0 +1,33 @@
+[
+    {
+        "Function Name": "MatrixMultiplication",
+        "CPU Usage": 85,
+        "Memory Usage": 650,
+        "GPU Idle Time": 20
+    },
+    {
+        "Function Name": "DataPreparation",
+        "CPU Usage": 45,
+        "Memory Usage": 300,
+        "GPU Idle Time": 10
+    },
+    {
+        "Function Name": "RenderScene",
+        "CPU Usage": 65,
+        "Memory Usage": 720,
+        "GPU Idle Time": 55
+    },
+    {
+        "Function Name": "FileIO",
+        "CPU Usage": 30,
+        "Memory Usage": 200,
+        "GPU Idle Time": 5
+    },
+    {
+        "Function Name": "DeepLearningTraining",
+        "CPU Usage": 90,
+        "Memory Usage": 950,
+        "GPU Idle Time": 60
+    }
+]
+

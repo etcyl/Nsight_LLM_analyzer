@@ -1,0 +1,50 @@
+Prompt:
+Analyze the following Nsight Systems data for performance bottlenecks and resource usage:
+{
+  "sessions": [
+    {
+      "name": "Session 1",
+      "duration": 120.5,
+      "cpu_usage": 75.2,
+      "gpu_usage": 88.3,
+      "memory_usage": 62.5,
+      "disk_io": 15.2,
+      "network_io": 5.7,
+      "events": [
+        {
+          "name": "event_1",
+          "duration": 30.1,
+          "cpu_usage": 50.3,
+          "gpu_usage": 60.0
+        },
+        {
+          "name": "event_2",
+          "duration": 40.2,
+          "cpu_usage": 70.5,
+          "gpu_usage": 85.7
+        },
+        {
+          "name": "event_3",
+          "duration": 50.2,
+          "cpu_usage": 90.1,
+          "gpu_usage": 95.3
+        }
+      ]
+    }
+  ]
+}
+
+Identify areas that should be inspected further for bottlenecks. Suggest areas taking up the most resources and provide general optimization advice.
+
+Analysis Output:
+On the basis of the data provided, there are a few areas to prioritize in order to optimize performance. 
+
+1. **GPU Usage**: The overall GPU usage for the session is high, averaging at 88.3%. Specifically, during 'event_3', the GPU spikes up to 95.3% usage. This could indicate that the application is GPU-bound. Regular high GPU use might harm the device's longevity due to overheating. To increase performance and decrease GPU usage, try optimizing the GPU-accelerated processes, consider better managing the rendering or computations that are handled by the GPU.
+
+2. **CPU Usage**: The CPU usage is also moderately high, with an average usage of 75.2%. During 'event_3', it reaches 90.1%. If current usage rates persist over long periods, it can lead to degraded performance. Optimizations here can include improving multithreading, cleaning up unnecessary computations, or looking into using a more efficient algorithm for tasks that demand a lot of processing power.
+
+3. **Memory Usage**: The memory usage is at a lower rate compared to CPU and GPU with usage at 62.5%. However, it should not be ignored. If possible, aim to reduce high memory consumption patterns, especially if they are persistent as this can also lead to performance issues. Memory leaks can sometimes cause this, as could inefficient use of data structures.
+
+4. **Disk I/O and Network I/O**: These numbers are relatively low in comparison, at 15.2% and 5.7% respectively. Lower Disk I/O usage encapsulates that the system is efficiently writing and reading from the hard drive while lower Network I/O usage indicates lower data transmission activities. This is generally good news, but we should always remain alert to potential for improvements, depending on the specific goals of the application.
+
+In general, improving and optimizing code can lead to a decrease in these usage percentages, but it's a trade-off between how intensive your application is and the hardware capabilities of the system running it. Implementing better algorithms, improving data structures, or off-loading tasks to less busy times or secondary threads can help reduce the processor times. Always consider efficient practices while developing the code.
