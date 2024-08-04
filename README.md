@@ -1,8 +1,8 @@
-Nsight LLM Analyzer
+#Nsight LLM Analyzer
 
 Nsight LLM Analyzer is a tool that reads output from NVIDIA Nsight Systems, analyzes it using OpenAI's GPT-4, and provides insights on performance bottlenecks and resource usage. This repository includes a modular Python package for performing the analysis and a main script for running the tool.
 
-Directory Structure
+##Directory Structure
 
 
 Nsight_LLM_analyzer/
@@ -16,8 +16,7 @@ Nsight_LLM_analyzer/
         __init__.py
         test_llm_analyze.py
 
-Files Description
-
+##Files Description
     nsight_analyzer/: This directory contains the core analysis module.
         __init__.py: Makes the directory a package.
         llm_analyze.py: Contains functions to read mock data and analyze it using OpenAI's GPT-4.
@@ -31,7 +30,7 @@ Files Description
         __init__.py: Makes the directory a package.
         test_llm_analyze.py: Unit tests for llm_analyze.py using unittest and unittest.mock.
 
-Installation
+##Installation
 
 Clone the repository:
     ```git clone <repository_url>```
@@ -47,11 +46,21 @@ Set the OpenAI API key as an environment variable:
     On Windows:
     ```set OPENAI_API_KEY="your_openai_api_key"```
 
+##Running the Interactive Application
+Start the Flask server:
+    ```python interactive_app.py```
 
-Run the main script:
+Open the web browser and navigate to:
+    ```http://127.0.0.1:5000```
+
+Expected Output:
+    You should see a form where you can select a file for analysis, modify the prompt, and optionally save the output to a folder.
+    After submitting, the page will display the analysis results from GPT-4.
+
+##Run the main script:
     ```python main.py```
 
-Running Tests
+##Running Tests
 
 Ensure you have pytest installed:
     ```pip install pytest```
@@ -61,11 +70,10 @@ Run the tests:
 
 This will execute the unit tests and validate the functionality of the llm_analyze module.
 
-Detailed Explanation
+##Detailed Explanation
 nsight_analyzer/llm_analyze.py
 
 This module contains two main functions:
-
     read_mock_data(directory): Reads JSON files from the specified directory and returns a list of tuples containing filenames and their data.
 
     llm_analyze(data): Sends the provided data to OpenAI's GPT-4 for analysis. Constructs a prompt with the data and requests insights on performance bottlenecks and resource usage.
@@ -73,7 +81,6 @@ This module contains two main functions:
 main.py
 
 The main script that:
-
     Sets the OpenAI API key from the environment variable.
     Reads data files from the mock_data/ directory using read_mock_data.
     Analyzes each data file using llm_analyze.
@@ -82,6 +89,5 @@ The main script that:
 tests/test_llm_analyze.py
 
 Unit tests for the llm_analyze module using unittest and unittest.mock:
-
     test_llm_analyze: Mocks the OpenAI API call and verifies that the llm_analyze function returns the expected analysis output.
     test_read_mock_data: Mocks file reading and verifies that the read_mock_data function correctly reads and parses the JSON files.
