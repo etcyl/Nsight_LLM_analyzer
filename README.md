@@ -41,7 +41,7 @@ Set up a virtual environment:
 ```source myenv/bin/activate```
     
 ### On Windows use 
-``` `myenv\Scripts\activate` ```
+``` myenv\Scripts\activate ```
 
 Set the OpenAI API key as an environment variable:
     On Linux:
